@@ -1,15 +1,21 @@
 # Homebrew formula for sandkasten.
 #
-#   brew tap DatanoiseTV/sandkasten
-#   brew install sandkasten
+# This file is the canonical template. The live copy lives in the tap at
+# https://github.com/DatanoiseTV/homebrew-sandkasten/blob/main/Formula/sandkasten.rb
+# and is structured so it can be submitted unchanged to homebrew-core
+# once the project meets the notability threshold (see SUBMISSION.md).
 #
-# See https://github.com/DatanoiseTV/sandkasten for the source.
+# To cut a release:
+#   1. tag a new version (e.g. `git tag v0.2.1 && git push --tags`)
+#   2. download the source tarball and compute `shasum -a 256`
+#   3. update `url` + `sha256` below
+#   4. copy this file to the tap repo
 
 class Sandkasten < Formula
   desc     "Fast, kernel-enforced application sandbox for macOS and Linux"
   homepage "https://github.com/DatanoiseTV/sandkasten"
-  url      "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.2.0.tar.gz"
-  sha256   "4a1613465c7875c165a52308869983a7146512de5d35088064bd7f84d9f2346b"
+  url      "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.2.1.tar.gz"
+  sha256   "96ebe031b0140338ba1b09a75b33f949d42f280bb1349e84cc3c2cc65b838214"
   license  any_of: ["MIT", "Apache-2.0"]
   head     "https://github.com/DatanoiseTV/sandkasten.git", branch: "main"
 
