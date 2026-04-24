@@ -8,12 +8,11 @@
 class Sandkasten < Formula
   desc     "Fast, kernel-enforced application sandbox for macOS and Linux"
   homepage "https://github.com/DatanoiseTV/sandkasten"
-  license  "MIT OR Apache-2.0"
+  license  any_of: ["MIT", "Apache-2.0"]
   head     "https://github.com/DatanoiseTV/sandkasten.git", branch: "main"
 
   url    "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "87553d582448f408a64c8ef76d061bae23ea86a4caa188a93aa5b85ab2269ead"
-  version "0.1.0"
 
   depends_on "rust" => :build
 
