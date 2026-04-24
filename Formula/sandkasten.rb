@@ -11,8 +11,8 @@ class Sandkasten < Formula
   license  any_of: ["MIT", "Apache-2.0"]
   head     "https://github.com/DatanoiseTV/sandkasten.git", branch: "main"
 
-  url    "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "87553d582448f408a64c8ef76d061bae23ea86a4caa188a93aa5b85ab2269ead"
+  url    "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "4a1613465c7875c165a52308869983a7146512de5d35088064bd7f84d9f2346b"
 
   depends_on "rust" => :build
 
