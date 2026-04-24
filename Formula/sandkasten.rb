@@ -5,23 +5,22 @@
 # and is structured so it can be submitted unchanged to homebrew-core
 # once the project meets the notability threshold (see SUBMISSION.md).
 #
-# Stable installs use the prebuilt release tarball — same binary the
-# GitHub Release ships, no local `cargo install` required, ~2s install
-# instead of ~45s. `brew install --HEAD` still builds from source for
-# users who want to track `main`.
+# Install path: the prebuilt release tarball — same binary the GitHub
+# Release ships, no local `cargo install` required, ~2s install instead
+# of ~45s. Users who want to build from source can clone the repo and
+# `cargo install --path .` themselves; we don't bother with a --HEAD
+# formula path.
 #
 # To cut a release:
 #   1. tag a new version (e.g. `git tag v0.4.1 && git push --tags`)
 #   2. the release workflow builds + uploads 4 platform tarballs + .sha256
-#   3. update `version` + the url/sha256 for each of the 4 `on_*` blocks
+#   3. update the url + sha256 for each of the 4 `on_*` blocks
 #   4. copy this file to the tap repo
 
 class Sandkasten < Formula
   desc     "Fast, kernel-enforced application sandbox for macOS and Linux"
   homepage "https://github.com/DatanoiseTV/sandkasten"
   license  any_of: ["MIT", "Apache-2.0"]
-  head     "https://github.com/DatanoiseTV/sandkasten.git", branch: "main"
-  version  "0.4.0"
 
   on_macos do
     on_arm do
@@ -59,17 +58,6 @@ class Sandkasten < Formula
     end
     zsh_completion.install "completions/_sandkasten" if File.exist?("completions/_sandkasten")
     fish_completion.install "completions/sandkasten.fish" if File.exist?("completions/sandkasten.fish")
-  end
-
-  # `brew install --HEAD sandkasten` builds from source so users can track
-  # `main` or apply local patches.
-  head do
-    depends_on "rust" => :build
-
-    def install
-      system "cargo", "install", *std_cargo_args
-      generate_completions_from_executable(bin/"sandkasten", "completions")
-    end
   end
 
   test do
