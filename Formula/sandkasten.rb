@@ -8,11 +8,10 @@
 class Sandkasten < Formula
   desc     "Fast, kernel-enforced application sandbox for macOS and Linux"
   homepage "https://github.com/DatanoiseTV/sandkasten"
+  url      "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.2.0.tar.gz"
+  sha256   "4a1613465c7875c165a52308869983a7146512de5d35088064bd7f84d9f2346b"
   license  any_of: ["MIT", "Apache-2.0"]
   head     "https://github.com/DatanoiseTV/sandkasten.git", branch: "main"
-
-  url    "https://github.com/DatanoiseTV/sandkasten/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "4a1613465c7875c165a52308869983a7146512de5d35088064bd7f84d9f2346b"
 
   depends_on "rust" => :build
 
@@ -24,7 +23,7 @@ class Sandkasten < Formula
   end
 
   test do
-    assert_match "self", shell_output("#{bin}/sandkasten templates")
-    system "#{bin}/sandkasten", "doctor"
+    assert_match "self", shell_output("#{bin/"sandkasten"} templates")
+    system bin/"sandkasten", "doctor"
   end
 end
